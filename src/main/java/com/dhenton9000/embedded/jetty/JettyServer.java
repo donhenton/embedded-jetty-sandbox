@@ -10,9 +10,18 @@ import org.eclipse.jetty.webapp.Configuration;
 import org.eclipse.jetty.webapp.WebAppContext;
 
  //http://eclipse.org/jetty/documentation/current/embedded-examples.html
+/**
+ * This server can serve jsp pages.
+ * 
+ * @author dhenton
+ */
 public class JettyServer {
 
     private Server jettyServer;
+    /**
+     * the location of the web-inf folder and the web pages
+     */
+    private String resourceBase = "src/main/webapp";
 
     /**
      * Unit Test Jetty Server.
@@ -30,7 +39,7 @@ public class JettyServer {
         WebAppContext webApplication = new WebAppContext();
 
         webApplication.setContextPath(contextPath);
-        webApplication.setResourceBase("src/main/webapp");
+        webApplication.setResourceBase(resourceBase);
 
         Configuration.ClassList classlist = Configuration.ClassList
                 .setServerDefault(jettyServer);
@@ -52,6 +61,20 @@ public class JettyServer {
 
     public void stopJettyServer() throws Exception {
         jettyServer.stop();
+    }
+
+    /**
+     * @return the resourceBase
+     */
+    public String getResourceBase() {
+        return resourceBase;
+    }
+
+    /**
+     * @param resourceBase the resourceBase to set
+     */
+    public void setResourceBase(String resourceBase) {
+        this.resourceBase = resourceBase;
     }
 
 }
