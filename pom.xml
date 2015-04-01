@@ -5,7 +5,7 @@
     <groupId>embedded-jetty</groupId>
     <artifactId>embedded-jetty-sandbox</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>embedded-jetty-sandbox</name>
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
