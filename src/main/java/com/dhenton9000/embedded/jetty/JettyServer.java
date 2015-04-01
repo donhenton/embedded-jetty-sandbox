@@ -30,17 +30,28 @@ public class JettyServer {
      * @param port the port for the web server
      *
      * @param contextPath in the test environment something like '/app'
+     * 
+     * @param resourceBase if null default to 'src/main/webapp' the
+     * place where files are served from 
+     * 
+     * 
      * @throws Exception
      */
-    public JettyServer(int port, String contextPath) throws Exception {
+    public JettyServer(int port, String contextPath,String resourceBase) throws Exception {
         //String resourceBasePath = this.getClass().getResource(warLocation).toExternalForm();
 
         jettyServer = new Server(port);
         WebAppContext webApplication = new WebAppContext();
 
         webApplication.setContextPath(contextPath);
-        webApplication.setResourceBase(resourceBase);
+        if (resourceBase != null)
+        {
+            
+            this.resourceBase = resourceBase;
+        }
 
+        
+        webApplication.setResourceBase(this.resourceBase);
         Configuration.ClassList classlist = Configuration.ClassList
                 .setServerDefault(jettyServer);
         classlist.addBefore(
@@ -70,11 +81,6 @@ public class JettyServer {
         return resourceBase;
     }
 
-    /**
-     * @param resourceBase the resourceBase to set
-     */
-    public void setResourceBase(String resourceBase) {
-        this.resourceBase = resourceBase;
-    }
+   
 
 }

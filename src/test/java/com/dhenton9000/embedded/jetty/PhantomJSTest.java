@@ -43,7 +43,7 @@ public class PhantomJSTest {
 
     @BeforeClass
     public static void start() throws Exception {
-        localWebServer = new JettyServer(PORT, CONTEXT_PATH);
+        localWebServer = new JettyServer(PORT, CONTEXT_PATH,null);
         downloadURI200 = APP_URL + "/phantom.jsp";
 
     }
