@@ -80,7 +80,7 @@
             <scope>test</scope>
             <type>jar</type>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>com.dhenton9000.selenium.sandbox</groupId>
             <artifactId>selenium-sandbox</artifactId>
             <version>1.0-SNAPSHOT</version>
@@ -95,7 +95,7 @@
                     <artifactId>poi-ooxml</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
